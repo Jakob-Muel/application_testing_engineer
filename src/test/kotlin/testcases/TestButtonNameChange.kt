@@ -3,7 +3,7 @@ package testcases
 import BaseTestClass
 import org.testng.annotations.Test
 
-class TestButtonTest: BaseTestClass() {
+class TestButtonNameChange: BaseTestClass() {
 
     /*
     In this Testcase I want you to go to this website (http://uitestingplayground.com/textinput) and check for the Text
