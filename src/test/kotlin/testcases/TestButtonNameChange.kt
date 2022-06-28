@@ -13,10 +13,14 @@ class TestButtonNameChange: BaseTestClass() {
     see the other example test.
 
     In order to run the test, open the repo in your terminal and enter `gradle test --info`. This runs the tests.
+    You can set the variable `isHeadless` to false to see an actual browser window pop up.
+
+    Happy coding! :)
      */
 
     @Test
     fun checkButtonTest() {
+        isHeadless = false
 
     }
 }

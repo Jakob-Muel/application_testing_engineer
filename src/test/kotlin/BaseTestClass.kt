@@ -4,12 +4,14 @@ import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
+import org.testng.annotations.AfterClass
 import java.time.Duration
 import java.util.*
 
 open class BaseTestClass {
 
     lateinit var driver: WebDriver
+    var isHeadless = true
 
     companion object {
         const val WEBDRIVER_CHROME_DRIVER = "webdriver.chrome.driver"
@@ -28,7 +30,7 @@ open class BaseTestClass {
             System.setProperty(WEBDRIVER_CHROME_DRIVER, RESOURCES_DRIVER_CHROMEDRIVER)
         }
         val options = ChromeOptions()
-        options.setHeadless(true)
+        options.setHeadless(isHeadless)
         options.addArguments("--no-sandbox")
             .addArguments("--disable-dev-shm-usage")
             .addArguments("--lang=${locale.language}")
@@ -50,9 +52,9 @@ open class BaseTestClass {
         return driver
     }
 
-    fun handleCookies() {
-        WebDriverWait(driver, Duration.ofSeconds(2))
-            .until(ExpectedConditions.elementToBeClickable(By.id("saveChoice"))).click()
+    @AfterClass
+    fun closeBrowser() {
+        driver.quit()
     }
 
 }
