@@ -13,6 +13,7 @@ open class BaseTestClass {
     lateinit var driver: WebDriver
     var isHeadless = true
 
+
     companion object {
         const val WEBDRIVER_CHROME_DRIVER = "webdriver.chrome.driver"
         const val RESOURCES_DRIVER_CHROMEDRIVER = "resources/drivers/chromedriver"
