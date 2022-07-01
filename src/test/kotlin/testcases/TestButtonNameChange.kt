@@ -25,7 +25,7 @@ class TestButtonNameChange: BaseTestClass() {
     fun checkButtonTest() {
         createWebDriverInstance()
         // Variable for Buttonname
-        val ButtonNameVar = "New Button, Who dis?"
+        val buttonNameVar = "New Button, Who dis?"
 
         driver.get("http://uitestingplayground.com/textinput")
 
@@ -44,16 +44,16 @@ class TestButtonNameChange: BaseTestClass() {
 
         val textField = driver.findElement(By.id("newButtonName"))
 
-        // Changing Button name
-        textField.sendKeys(ButtonNameVar)
+        textField.sendKeys(buttonNameVar)
 
-        // Assertion to make sure button has its initial name even text has been input but it has not being clicked
+        // Assertion to make sure button has its initial name even though it has not being clicked
         Assert.assertEquals(buttonVarText,"Button That Should Change it's Name Based on Input Value")
 
+        // Changing Button name through click
         buttonVar.click()
 
         // Assertion to make sure button has new name
-        Assert.assertEquals(buttonVar.text,ButtonNameVar)
+        Assert.assertEquals(buttonVar.text,buttonNameVar)
 
 
     }
